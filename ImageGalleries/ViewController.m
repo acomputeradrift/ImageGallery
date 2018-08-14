@@ -132,12 +132,20 @@
     NSLayoutConstraint *secondImageViewYConstraints = [NSLayoutConstraint constraintWithItem:secondImageView
                                                                                   attribute:NSLayoutAttributeTop
                                                                                   relatedBy:NSLayoutRelationEqual
-                                                                                     toItem:self.view
+                                                                                     toItem:self.uiScrollView
                                                                                   attribute:NSLayoutAttributeTop
                                                                                  multiplier:1
                                                                                    constant:0.0];
     secondImageViewYConstraints.active = YES;
     
+    NSLayoutConstraint *secondImageViewBottomConstraints = [NSLayoutConstraint constraintWithItem:secondImageView
+                                                                                   attribute:NSLayoutAttributeBottom
+                                                                                   relatedBy:NSLayoutRelationEqual
+                                                                                      toItem:self.uiScrollView
+                                                                                   attribute:NSLayoutAttributeBottom
+                                                                                  multiplier:1
+                                                                                    constant:0.0];
+    secondImageViewBottomConstraints.active = YES;
     
       //-------------------box3
     
@@ -166,6 +174,16 @@
                                                                                     constant:0
                                                        ];
     thirdImageViewXConstraints.active = YES;
+    
+    NSLayoutConstraint *thirdImageViewBottomConstraints = [NSLayoutConstraint constraintWithItem:thirdImageView
+                                                                                  attribute:NSLayoutAttributeBottom
+                                                                                  relatedBy:NSLayoutRelationEqual
+                                                                                     toItem:self.uiScrollView
+                                                                                  attribute:NSLayoutAttributeBottom
+                                                                                 multiplier:1
+                                                                                   constant:0
+                                                      ];
+    thirdImageViewBottomConstraints.active = YES;
 //end of scroll view
     NSLayoutConstraint *thirdImageViewTrailingConstraints = [NSLayoutConstraint constraintWithItem:thirdImageView
                                                                                   attribute:NSLayoutAttributeTrailing
@@ -181,7 +199,7 @@
     NSLayoutConstraint *thirdImageViewYConstraints = [NSLayoutConstraint constraintWithItem:thirdImageView
                                                                                    attribute:NSLayoutAttributeTop
                                                                                    relatedBy:NSLayoutRelationEqual
-                                                                                      toItem:self.view
+                                                                                      toItem:self.uiScrollView
                                                                                    attribute:NSLayoutAttributeTop
                                                                                   multiplier:1
                                                                                     constant:0.0];
@@ -189,9 +207,9 @@
     
 }
 
--(UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView{
-    return self.firstImageView;
-}
+//-(UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView{
+//    return self.firstImageView;
+//}
 
 //- (void)viewDidLayoutSubviews{
 //    CGFloat width = self.view.frame.size.width;

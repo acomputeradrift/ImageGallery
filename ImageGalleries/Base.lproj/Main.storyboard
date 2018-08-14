@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zXC-yC-XeT">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -43,5 +43,49 @@
             </objects>
             <point key="canvasLocation" x="140" y="133.5832083958021"/>
         </scene>
+        <!--Zoom View Controller-->
+        <scene sceneID="EHP-4c-jl0">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a6S-Iq-INY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="zXC-yC-XeT" customClass="ZoomViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="saj-Te-wci" customClass="ViewC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="3" translatesAutoresizingMaskIntoConstraints="NO" id="8OA-dM-Aut">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Lighthouse-in-Field" translatesAutoresizingMaskIntoConstraints="NO" id="SzG-Wf-MBX">
+                                        <rect key="frame" x="0.0" y="0.0" width="960" height="540"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="SzG-Wf-MBX" secondAttribute="trailing" id="0q8-vS-Del"/>
+                                    <constraint firstItem="SzG-Wf-MBX" firstAttribute="top" secondItem="8OA-dM-Aut" secondAttribute="top" id="cPz-j3-G58"/>
+                                    <constraint firstItem="SzG-Wf-MBX" firstAttribute="leading" secondItem="8OA-dM-Aut" secondAttribute="leading" id="h9F-MQ-Yl7"/>
+                                    <constraint firstAttribute="bottom" secondItem="SzG-Wf-MBX" secondAttribute="bottom" id="qNe-Dh-XEN"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="8OA-dM-Aut" firstAttribute="trailing" secondItem="nd3-zL-Nad" secondAttribute="trailing" id="8jb-2h-TvP"/>
+                            <constraint firstItem="8OA-dM-Aut" firstAttribute="bottom" secondItem="nd3-zL-Nad" secondAttribute="bottom" id="9no-2N-7gJ"/>
+                            <constraint firstItem="8OA-dM-Aut" firstAttribute="top" secondItem="saj-Te-wci" secondAttribute="top" id="SPY-Zz-J3I"/>
+                            <constraint firstItem="8OA-dM-Aut" firstAttribute="leading" secondItem="saj-Te-wci" secondAttribute="leading" id="yxm-sk-cZ4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="nd3-zL-Nad"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="SzG-Wf-MBX" id="olS-SU-neu"/>
+                        <outlet property="uiScrollView" destination="8OA-dM-Aut" id="DxT-5l-PFe"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1383.2" y="133.5832083958021"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="Lighthouse-in-Field" width="960" height="540"/>
+    </resources>
 </document>

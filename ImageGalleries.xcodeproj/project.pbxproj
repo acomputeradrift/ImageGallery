@@ -15,6 +15,7 @@
 		7D69D2C321222BC200B9C73B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D69D2C221222BC200B9C73B /* main.m */; };
 		7D69D2CD21222BC200B9C73B /* ImageGalleriesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D69D2CC21222BC200B9C73B /* ImageGalleriesTests.m */; };
 		7D69D2D821222BC200B9C73B /* ImageGalleriesUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D69D2D721222BC200B9C73B /* ImageGalleriesUITests.m */; };
+		7D69D2ED2122720000B9C73B /* ZoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D69D2EC2122720000B9C73B /* ZoomViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		7D69D2D321222BC200B9C73B /* ImageGalleriesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageGalleriesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D69D2D721222BC200B9C73B /* ImageGalleriesUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageGalleriesUITests.m; sourceTree = "<group>"; };
 		7D69D2D921222BC200B9C73B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D69D2EB2122720000B9C73B /* ZoomViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZoomViewController.h; sourceTree = "<group>"; };
+		7D69D2EC2122720000B9C73B /* ZoomViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZoomViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +109,8 @@
 				7D69D2B621222BC100B9C73B /* ViewController.h */,
 				7D69D2B721222BC100B9C73B /* ViewController.m */,
 				7D69D2B921222BC100B9C73B /* Main.storyboard */,
+				7D69D2EB2122720000B9C73B /* ZoomViewController.h */,
+				7D69D2EC2122720000B9C73B /* ZoomViewController.m */,
 				7D69D2BC21222BC200B9C73B /* Assets.xcassets */,
 				7D69D2BE21222BC200B9C73B /* LaunchScreen.storyboard */,
 				7D69D2C121222BC200B9C73B /* Info.plist */,
@@ -265,6 +270,7 @@
 				7D69D2B821222BC100B9C73B /* ViewController.m in Sources */,
 				7D69D2C321222BC200B9C73B /* main.m in Sources */,
 				7D69D2B521222BC100B9C73B /* AppDelegate.m in Sources */,
+				7D69D2ED2122720000B9C73B /* ZoomViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
