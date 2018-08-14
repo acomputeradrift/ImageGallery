@@ -10,6 +10,7 @@
 
 @interface ViewController ()<UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *uiScrollView;
+@property (nonatomic, strong) UIImageView *firstImageView;
 
 @end
 
@@ -18,31 +19,44 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //create 3 image views
-    UIImageView *firstImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
+    self.firstImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
     UIImageView *secondImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
     UIImageView *thirdImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
+    
     // set auto resizing to no
-    [firstImageView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.firstImageView setUserInteractionEnabled:YES];
+    [secondImageView setUserInteractionEnabled:YES];
+    [thirdImageView setUserInteractionEnabled:YES];
+    
+    [self.firstImageView setTranslatesAutoresizingMaskIntoConstraints:NO];
     [secondImageView setTranslatesAutoresizingMaskIntoConstraints:NO];
     [thirdImageView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    
     // add images as subviews to scroll view
-    [self.uiScrollView addSubview:firstImageView];
+    [self.uiScrollView addSubview:self.firstImageView];
     [self.uiScrollView addSubview:secondImageView];
     [self.uiScrollView addSubview:thirdImageView];
+    
+    
     //create 3 images
-    UIImage *image1 = [UIImage imageNamed: @"Lighthouse-in-field.png"];
-    UIImage *image2 = [UIImage imageNamed: @"Lighthouse-night.png"];
-    UIImage *image3 = [UIImage imageNamed: @"Lighthouse-zoomed.png"];
+    UIImage *image1 = [UIImage imageNamed: @"Lighthouse-in-Field"];
+    UIImage *image2 = [UIImage imageNamed: @"Lighthouse-night"];
+    UIImage *image3 = [UIImage imageNamed: @"Lighthouse-zoomed"];
+ 
     //set the images to the image views
-    firstImageView.image = image1;
-    firstImageView.image = image2;
-    firstImageView.image = image3;
+    self.firstImageView.image = image1;
+    secondImageView.image = image2;
+    thirdImageView.image = image3;
+    
+    
+    self.uiScrollView.pagingEnabled = YES;
+   
 
    
     
     
     //-------------------box1
-    NSLayoutConstraint *firstImageViewWidthConstraints = [NSLayoutConstraint constraintWithItem:firstImageView
+    NSLayoutConstraint *firstImageViewWidthConstraints = [NSLayoutConstraint constraintWithItem:self.firstImageView
                                                                                         attribute:NSLayoutAttributeWidth
                                                                                         relatedBy:NSLayoutRelationEqual
                                                                                            toItem:self.view
@@ -50,7 +64,7 @@
                                                                                        multiplier:1
                                                                                          constant:0.0];
     firstImageViewWidthConstraints.active = YES;
-    NSLayoutConstraint *firstImageViewHeightConstraints = [NSLayoutConstraint constraintWithItem:firstImageView
+    NSLayoutConstraint *firstImageViewHeightConstraints = [NSLayoutConstraint constraintWithItem:self.firstImageView
                                                                                       attribute:NSLayoutAttributeHeight
                                                                                       relatedBy:NSLayoutRelationEqual
                                                                                          toItem:self.view
@@ -58,27 +72,37 @@
                                                                                      multiplier:1
                                                                                        constant:0.0];
     firstImageViewHeightConstraints.active = YES;
-    
-    NSLayoutConstraint *firstImageViewXConstraints = [NSLayoutConstraint constraintWithItem:firstImageView
+    //----start if scroll view
+    NSLayoutConstraint *firstImageViewXConstraints = [NSLayoutConstraint constraintWithItem:self.firstImageView
                                                                                       attribute:NSLayoutAttributeLeading
                                                                                       relatedBy:NSLayoutRelationEqual
-                                                                                         toItem:self.view
+                                                                                         toItem:self.uiScrollView
                                                                                       attribute:NSLayoutAttributeLeading
                                                                                      multiplier:1
                                                                                        constant:0.0];
     firstImageViewXConstraints.active = YES;
-    NSLayoutConstraint *firstImageViewYConstraints = [NSLayoutConstraint constraintWithItem:firstImageView
+    NSLayoutConstraint *firstImageViewYConstraints = [NSLayoutConstraint constraintWithItem:self.firstImageView
                                                                                        attribute:NSLayoutAttributeTop
                                                                                        relatedBy:NSLayoutRelationEqual
-                                                                                          toItem:self.view
+                                                                                          toItem:self.uiScrollView
                                                                                        attribute:NSLayoutAttributeTop
                                                                                       multiplier:1
                                                                                         constant:0.0];
-    firstImageViewYConstraints.active = YES;
+      firstImageViewYConstraints.active = YES;
+    
+    NSLayoutConstraint *firstImageViewBottomConstraints = [NSLayoutConstraint constraintWithItem:self.firstImageView
+                                                                                  attribute:NSLayoutAttributeBottom
+                                                                                  relatedBy:NSLayoutRelationEqual
+                                                                                     toItem:self.uiScrollView
+                                                                                  attribute:NSLayoutAttributeBottom
+                                                                                 multiplier:1
+                                                                                   constant:0.0];
+    
+  
     
     
     
-    
+    firstImageViewBottomConstraints.active = YES;
       //-------------------box2
     NSLayoutConstraint *secondImageViewWidthConstraints = [NSLayoutConstraint constraintWithItem:secondImageView
                                                                                       attribute:NSLayoutAttributeWidth
@@ -99,7 +123,7 @@
     NSLayoutConstraint *secondImageViewXConstraints = [NSLayoutConstraint constraintWithItem:secondImageView
                                                                                   attribute:NSLayoutAttributeLeading
                                                                                   relatedBy:NSLayoutRelationEqual
-                                                                                     toItem:firstImageView
+                                                                                     toItem:self.firstImageView
                                                                                   attribute:NSLayoutAttributeTrailing
                                                                                  multiplier:1
                                                                                    constant:0
@@ -142,6 +166,18 @@
                                                                                     constant:0
                                                        ];
     thirdImageViewXConstraints.active = YES;
+//end of scroll view
+    NSLayoutConstraint *thirdImageViewTrailingConstraints = [NSLayoutConstraint constraintWithItem:thirdImageView
+                                                                                  attribute:NSLayoutAttributeTrailing
+                                                                                  relatedBy:NSLayoutRelationEqual
+                                                                                     toItem:self.uiScrollView
+                                                                                  attribute:NSLayoutAttributeTrailing
+                                                                                 multiplier:1
+                                                                                   constant:0
+                                                      ];
+    thirdImageViewTrailingConstraints.active = YES;
+
+
     NSLayoutConstraint *thirdImageViewYConstraints = [NSLayoutConstraint constraintWithItem:thirdImageView
                                                                                    attribute:NSLayoutAttributeTop
                                                                                    relatedBy:NSLayoutRelationEqual
@@ -150,7 +186,17 @@
                                                                                   multiplier:1
                                                                                     constant:0.0];
     thirdImageViewYConstraints.active = YES;
+    
 }
+
+-(UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView{
+    return self.firstImageView;
+}
+
+//- (void)viewDidLayoutSubviews{
+//    CGFloat width = self.view.frame.size.width;
+//    [self.uiScrollView setContentSize:CGSizeMake(width*3, self.view.frame.size.height)];
+//}
 
 
 - (void)didReceiveMemoryWarning {
